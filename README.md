@@ -34,3 +34,37 @@ Tensorflow-Text-Classifier/
 ├── main.py                  # Main execution pipeline
 ├── requirements.txt         # Dependency list
 └── README.md                # Project documentation
+
+git clone [https://github.com/Anwarsaffan58/Tensorflow-Text-Classifier.git](https://github.com/Anwarsaffan58/Tensorflow-Text-Classifier.git)
+cd Tensorflow-Text-Classifier
+pip install -r requirements.txt
+python main.py
+--- STARTING TENSORFLOW NLP PIPELINE ---
+
+[1/4] Loading IMDb Movie Review dataset...
+      Training samples: 25000
+      Test samples: 25000
+
+[2/4] Building TensorFlow Neural Network...
+      Model: "sequential"
+      _________________________________________________________________
+       Layer (type)                Output Shape              Param #   
+      =================================================================
+       embedding (Embedding)       (None, None, 16)          160000    
+       global_average_pooling1d    (None, 16)                0         
+       dense (Dense)               (None, 16)                272       
+       dense_1 (Dense)             (None, 1)                 17        
+      =================================================================
+      Total params: 160,289
+
+[3/4] Training Model...
+      Epoch 1/10: accuracy: 0.5715 - val_accuracy: 0.6057
+      Epoch 5/10: accuracy: 0.7607 - val_accuracy: 0.7705
+      Epoch 10/10: accuracy: 0.8533 - val_accuracy: 0.8392
+
+      FINAL TEST ACCURACY: 83.31%
+
+[4/4] Generating training visualization...
+      Plot saved to outputs/training_history.png
+
+📊 Results & AnalysisThe model achieved a Final Test Accuracy of 83.31%.VisualizationsThe training history plot (saved in outputs/) confirms that the model converges steadily without significant overfitting. The loss curve decreases consistently, indicating that the Embedding Layer successfully learned the semantic features of the dataset.🧠 How It Works (The Logic)Tokenization: Words are converted to integers (e.g., "Great" -> 45) based on frequency.Padding: All reviews are forced to a length of 256 words using pad_sequences.Embedding: The model learns to map words to a 16-dimensional vector space.Classification: A Dense layer with a Sigmoid activation function outputs a probability score ($0 \to 1$), where $>0.5$ is Positive and $<0.5$ is Negative.📝 AuthorSaffan
