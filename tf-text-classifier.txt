@@ -1,0 +1,8 @@
+tf-text-classifier/
+│
+├── outputs/                # Generated automatically
+│   ├── training_history.png
+│   └── evaluation_report.txt
+├── main.py                 # The complete logic script
+├── requirements.txt        # Dependencies
+└── README.md               # Documentation
